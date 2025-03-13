@@ -6,15 +6,15 @@ public class Epic extends Task {
         this.status = Status.NEW;
     }
 
-    public int getEId() {
+    public int getId() {
         return id;
     }
 
-    public void setEId(int Eid) {
-        this.id = Eid;
+    public void setId(int eId) {
+        this.id = eId;
     }
 
-    public void setEpicStatus(Status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

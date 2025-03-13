@@ -37,24 +37,24 @@ public class Main {
         SubTask JobSubTaskCreated6 = taskManager.addNewSubtask(JobSubTask6);
 
         System.out.println("Просмотр всех задач");
-        taskManager.ViewAllJobTask();
+        taskManager.viewAllJobTask();
         System.out.println("изменение статуса");
-        taskManager.ChangesJobTask();
+        taskManager.changesJobTask();
         System.out.println("изменение приоритета");
         taskManager.updatePriorityTask();
         System.out.println("изменение задачи");
         taskManager.updateDescriptionTask(3);
         System.out.println("удаляем ключ №..., ID №.... и полностью очищаем");
-        taskManager.ClearJobTasks(2, 4);
+        taskManager.clearJobTasks(2, 4);
 
         System.out.println("Просмотр всех Эпиков");
-        taskManager.ViewAllJobEpic();
+        taskManager.viewAllJobEpic();
 
         System.out.println("Просмотр всех Подзадач");
-        taskManager.ViewAllJobSubEpic();
+        taskManager.viewAllJobSubEpic();
 
         System.out.println("Просмотр подзадач Эпика");
-        taskManager.ViewEpicTuskAndSubTusk(3);
+        taskManager.viewEpicTuskAndSubTusk(3);
         System.out.println("Изменение статуса Подзадачи и Эпика");
         taskManager.upadateStatusSubEpic(1);
         taskManager.upadateStatusSubEpic(2);

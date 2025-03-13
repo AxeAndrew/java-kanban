@@ -1,10 +1,11 @@
 import java.util.HashMap;
+import java.util.Map;
 
 public class TaskManager {
 
-    protected final HashMap<Integer, Task> JobTasks = new HashMap<>();
-    protected final HashMap<Integer, Epic> JobEpic = new HashMap<>();
-    protected final HashMap<Integer, SubTask> JobSubtask = new HashMap<>();
+    protected final Map<Integer, Task> JobTasks = new HashMap<>();
+    protected final Map<Integer, Epic> JobEpic = new HashMap<>();
+    protected final Map<Integer, SubTask> JobSubtask = new HashMap<>();
 
     private int nextID = 1;
 
@@ -22,7 +23,7 @@ public class TaskManager {
         return JobTasks.get(id);
     }
 
-    public void ViewAllJobTask() {
+    public void viewAllJobTask() {
         for (Integer key : JobTasks.keySet()) {
             System.out.println(getTaskId(key));
         }
@@ -30,7 +31,7 @@ public class TaskManager {
     }
 
     // Изменение статуса
-    public void ChangesJobTask() {
+    public void changesJobTask() {
         for (Integer keyi : JobTasks.keySet()) {
             System.out.println("Смена статуса задачи №" + keyi);
             Task taskUpdate = getTaskId(keyi);
@@ -84,7 +85,7 @@ public class TaskManager {
     }
 
     // Очистка задач
-    public void ClearJobTasks(int i, int j) {
+    public void clearJobTasks(int i, int j) {
         int NumElement = 0;
         JobTasks.remove(i);
         System.out.println("удалили ключ " + i);
@@ -118,8 +119,8 @@ public class TaskManager {
     }
 
     public Epic addEpic(Epic epic) {
-        epic.setEId(getNextEID());
-        JobEpic.put(epic.getEId(), epic);
+        epic.setId(getNextEID());
+        JobEpic.put(epic.getId(), epic);
         return epic;
     }
 
@@ -127,7 +128,7 @@ public class TaskManager {
         return JobEpic.get(Eid);
     }
 
-    public void ViewAllJobEpic() {
+    public void viewAllJobEpic() {
         for (Integer key : JobEpic.keySet()) {
             System.out.println(getEpicId(key));
         }
@@ -142,8 +143,8 @@ public class TaskManager {
     }
 
     public SubTask addNewSubtask(SubTask subTask) {
-        subTask.setESubId(getNextESubID());
-        JobSubtask.put(subTask.getSubEId(), subTask);
+        subTask.setId(getNextESubID());
+        JobSubtask.put(subTask.getId(), subTask);
         return subTask;
     }
 
@@ -151,7 +152,7 @@ public class TaskManager {
         return JobSubtask.get(SubEid);
     }
 
-    public void ViewAllJobSubEpic() {
+    public void viewAllJobSubEpic() {
         for (Integer key : JobSubtask.keySet()) {
             System.out.println(getSubEpicId(key));
         }
@@ -168,7 +169,7 @@ public class TaskManager {
         return JobSubtask.get(id);
     }
 
-    public void ViewEpicTuskAndSubTusk(int i) {
+    public void viewEpicTuskAndSubTusk(int i) {
         int k = 0;
         System.out.println(getEpicId(i));
         for (Integer key : JobSubtask.keySet()) {
@@ -186,11 +187,11 @@ public class TaskManager {
 
     public void upadateStatusSubEpic(int iD) {
         SubTask SubTaskUpdate = getSubEId(iD);
-        SubTaskUpdate.setStatusSubTask(Status.DONE);
+        SubTaskUpdate.setStatus(Status.DONE);
         int k = SubTaskUpdate.getEpicSubTaskId();
         System.out.println("Смена статуса подзадачи № " + iD + " Эпика № " + k);
         upadateStatusEpic(k);
-        ViewEpicTuskAndSubTusk(k);
+        viewEpicTuskAndSubTusk(k);
         System.out.println(" ");
     }
 
@@ -212,9 +213,9 @@ public class TaskManager {
             }
         }
         if (iDONE == k) {
-            EpicTask.setEpicStatus(Status.DONE);
+            EpicTask.setStatus(Status.DONE);
         } else if ((iDONE > 0) || (iDONE < k) || (iNEW > 0) || (iNEW <= k)) {
-            EpicTask.setEpicStatus(Status.IN_PROGRESS);
+            EpicTask.setStatus(Status.IN_PROGRESS);
         }
     }
 }

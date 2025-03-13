@@ -1,29 +1,29 @@
 public class SubTask extends Task {
 
     private Status status;
-    public int EpicSubTaskId;
+    public int epicSubTaskId;
 
-    public SubTask(String name, String description, int EpicSubTaskId) {
+    public SubTask(String name, String description, int epicSubTaskId) {
         super(name, description);
 
-        this.EpicSubTaskId = EpicSubTaskId;
+        this.epicSubTaskId = epicSubTaskId;
         this.status = Status.NEW;
     }
 
-    public int getSubEId() {
+    public int getId() {
         return id;
     }
 
-    public void setESubId(int ESubTaskId) {
-        this.id = ESubTaskId;
+    public void setId(int eSubTaskId) {
+        this.id = eSubTaskId;
     }
 
-    public void setStatusSubTask(Status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
     public int getEpicSubTaskId() {
-        return EpicSubTaskId;
+        return epicSubTaskId;
     }
 
     public Status getSubEpicStatus() {
@@ -36,7 +36,7 @@ public class SubTask extends Task {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status=" + status +
-                ", EpicSubTaskId=" + EpicSubTaskId +
+                ", EpicSubTaskId=" + epicSubTaskId +
                 ", Sub id=" + id +
                 '}';
     }
